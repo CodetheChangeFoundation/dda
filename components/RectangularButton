@@ -8,7 +8,7 @@ export default class RectangularButton extends Component {
     return (
 <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
       <Button
-      title="Confirm"
+      title={this.props.title}
       raised
       titleStyle={{
         // change font here

@@ -11,8 +11,6 @@ export default class CircleButton extends Component {
       title={this.props.title}
       raised
       titleStyle={{
-        // change font here
-        //fontFamily: 'Century Gothic',
         textAlign: 'center',
         fontSize: 24,
         fontWeight: '700',

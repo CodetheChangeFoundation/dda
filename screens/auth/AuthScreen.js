@@ -34,7 +34,13 @@ export default class AuthScreen extends React.Component {
                 <View style={[styles.smallText, {flexDirection: 'row', paddingTop: 30}]}>
                     <Text>If you have been emailed a temporary password, update it  </Text>
                     <Text style={styles.link} onPress={url => this.props.navigation.navigate('ChangePassword')}>here.</Text>
+                <View style={[styles.smallText, {flexDirection: 'row', textAlign: 'center', paddingTop: 30}]}>
+                    <Text>Forgot your password? Click </Text>
+                    <Text style={styles.link} onPress={() =>
+                        this.props.navigation.navigate('ForgotPassword')}>
+                        here.</Text>
                 </View>
+            </View>
             </View>
         );
     }

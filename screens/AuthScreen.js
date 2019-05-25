@@ -24,7 +24,8 @@ export default class AuthScreen extends React.Component {
         this.setState({[field]: value});
     }
 
-    render() {
+    render(url) {
+        const tempPassword = true;
         return (
             <View style={styles.container}>
                 <Text>(logo goes here)</Text>
@@ -32,6 +33,10 @@ export default class AuthScreen extends React.Component {
                         onFormChange={this.handleFormChange}
                         onSubmit={this.handleSignIn}
                     />
+                <View style={[styles.smallText, {flexDirection: 'row', paddingTop: 30}]}>
+                    <Text>If you have been emailed a temporary password, sign in  </Text>
+                    <Text style={styles.link} onPress={url => this.props.navigation.navigate('ChangePassword', {hello: "hi"})}>here.</Text>
+                </View>
             </View>
         );
     }
@@ -43,5 +48,12 @@ const styles = StyleSheet.create({
         backgroundColor: '#fff',
         alignItems: 'center',
         justifyContent: 'center'
+    },
+    smallText: {
+        fontSize: 14,
+    },
+    link: {
+        color: '#F98C04',
+        fontWeight: 'bold',
     },
 });

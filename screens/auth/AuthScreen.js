@@ -1,7 +1,7 @@
 import React from 'react';
 import {StyleSheet, Text, View } from 'react-native';
 import {Auth} from 'aws-amplify';
-import SignInForm from "../components/auth/SignInForm";
+import SignInForm from "../../components/auth/SignInForm";
 
 export default class AuthScreen extends React.Component {
     constructor(props) {
@@ -14,8 +14,8 @@ export default class AuthScreen extends React.Component {
     }
 
     handleSignIn = () => {
-        const {email, password} = this.state;
-        Auth.signIn(email, password)
+        const email = this.state.email.toLowerCase()
+        Auth.signIn(email, this.state.password)
             .then(user => this.props.navigation.navigate('Home', {user}))
             .catch(err => console.log(err));
     };
@@ -25,7 +25,6 @@ export default class AuthScreen extends React.Component {
     }
 
     render(url) {
-        const tempPassword = true;
         return (
             <View style={styles.container}>
                 <Text>(logo goes here)</Text>
@@ -34,8 +33,8 @@ export default class AuthScreen extends React.Component {
                         onSubmit={this.handleSignIn}
                     />
                 <View style={[styles.smallText, {flexDirection: 'row', paddingTop: 30}]}>
-                    <Text>If you have been emailed a temporary password, sign in  </Text>
-                    <Text style={styles.link} onPress={url => this.props.navigation.navigate('ChangePassword', {hello: "hi"})}>here.</Text>
+                    <Text>If you have been emailed a temporary password, update it  </Text>
+                    <Text style={styles.link} onPress={url => this.props.navigation.navigate('ChangePassword')}>here.</Text>
                 </View>
             </View>
         );

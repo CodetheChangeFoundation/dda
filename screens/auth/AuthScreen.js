@@ -14,8 +14,7 @@ export default class AuthScreen extends React.Component {
     }
 
     handleSignIn = () => {
-        const email = this.state.email.toLowerCase()
-        Auth.signIn(email, this.state.password)
+        Auth.signIn(this.state.email, this.state.password)
             .then(user => this.props.navigation.navigate('Home', {user}))
             .catch(err => console.log(err));
     };

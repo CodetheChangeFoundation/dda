@@ -10,12 +10,14 @@ const SignUpForm = (props) => {
             <View style={styles.container}>
                 <TextInput
                     style={styles.input}
+                    autoCapitalize="none"
                     onChangeText={(value) => props.onFormChange("email", value)}
                     placeholder="Email"
                     placeholderTextColor="black"
                 />
                 <TextInput
                     style={styles.input}
+                    autoCapitalize="none"
                     onChangeText={(value) => props.onFormChange("password", value)}
                     placeholder="Password"
                     placeholderTextColor="black"
@@ -23,6 +25,7 @@ const SignUpForm = (props) => {
                 />
                 <TextInput
                     style={styles.input}
+                    autoCapitalize="none"
                     onChangeText={(value) => props.onFormChange("confirmPassword", value)}
                     placeholder="Confirm password"
                     placeholderTextColor="black"

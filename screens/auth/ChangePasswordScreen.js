@@ -23,7 +23,7 @@ export default class ChangePasswordScreen extends React.Component {
 
     handlePasswordChange = () => {
         const {oldPassword, newPassword, confirmNewPassword} = this.state;
-        const email = this.state.email.toLowerCase();
+        const email = this.state.email;
         if (newPassword === confirmNewPassword) {
             Auth.signIn(email, oldPassword)
                 .then(user => {

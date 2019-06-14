@@ -10,18 +10,21 @@ const ChangePasswordForm = (props) => {
             <View style={styles.container}>
                 <TextInput
                     style={styles.input}
+                    autoCapitalize="none"
                     onChangeText={(value) => props.onFormChange("email", value)}
                     placeholder="Email"
                     placeholderTextColor="black"
                 />
                 <TextInput
                     style={styles.input}
+                    autoCapitalize="none"
                     onChangeText={(value) => props.onFormChange("oldPassword", value)}
                     placeholder="Temporary password"
                     placeholderTextColor="black"
                 />
                 <TextInput
                     style={styles.input}
+                    autoCapitalize="none"
                     onChangeText={(value) => props.onFormChange("newPassword", value)}
                     placeholder="New password"
                     placeholderTextColor="black"
@@ -29,6 +32,7 @@ const ChangePasswordForm = (props) => {
                 />
                 <TextInput
                     style={styles.input}
+                    autoCapitalize="none"
                     onChangeText={(value) => props.onFormChange("confirmNewPassword", value)}
                     placeholder="Confirm new password"
                     placeholderTextColor="black"

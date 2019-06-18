@@ -21,9 +21,16 @@ export default class ChangePasswordScreen extends React.Component {
         this.setState({[field]: value});
     }
 
+    alertError(error) {
+        Alert.alert("Something went wrong, please try again.",
+            error.message, [{
+                title: "OK",
+                onPress: console.log(error),
+            }]);
+    }
+
     handlePasswordChange = () => {
-        const {oldPassword, newPassword, confirmNewPassword} = this.state;
-        const email = this.state.email;
+        const {email, oldPassword, newPassword, confirmNewPassword} = this.state;
         if (newPassword === confirmNewPassword) {
             Auth.signIn(email, oldPassword)
                 .then(user => {
@@ -41,15 +48,17 @@ export default class ChangePasswordScreen extends React.Component {
                                         this.props.navigation.navigate('Auth')
                                     }
                                 }])
-                        }).catch(e => {
+                        }).catch(err => {
                             // API call to completeNewPassword failed
-                            console.log(e);
+                            this.alertError(err);
                         });
                     }
-                }).catch(e => {
-                    // API call to SignIn failed
-                console.log(e);
+                }).catch(err => {
+                // API call to SignIn failed
+                this.alertError(err)
             });
+        } else {
+            this.alertError({message: "Passwords do not match."});
         }
     };
 

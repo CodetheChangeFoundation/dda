@@ -13,17 +13,7 @@ export default createAppContainer(createSwitchNavigator({
     Start: StartScreen,
     Auth: AuthScreen,
     ChangePassword: ChangePasswordScreen,
-
-
-
-
-
-
-
     EmployerSignUp: EmployerSignUpScreen,
-
-
     Home: HomeScreen,
     Main: MainTabNavigator,
-
 }));

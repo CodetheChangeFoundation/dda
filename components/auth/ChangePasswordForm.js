@@ -21,6 +21,7 @@ const ChangePasswordForm = (props) => {
                     onChangeText={(value) => props.onFormChange("oldPassword", value)}
                     placeholder="Temporary password"
                     placeholderTextColor="black"
+                    secureTextEntry
                 />
                 <TextInput
                     style={styles.input}

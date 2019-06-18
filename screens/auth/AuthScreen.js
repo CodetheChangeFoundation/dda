@@ -23,7 +23,7 @@ export default class AuthScreen extends React.Component {
         this.setState({[field]: value});
     }
 
-    render(url) {
+    render() {
         return (
             <View style={styles.container}>
                 <Text>(logo goes here)</Text>

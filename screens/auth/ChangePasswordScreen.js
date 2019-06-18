@@ -52,14 +52,12 @@ export default class ChangePasswordScreen extends React.Component {
                             // API call to completeNewPassword failed
                             this.alertError(err);
                         });
-                    }
+                    } else this.alertError({message: "Temporary password has already been updated."})
                 }).catch(err => {
                 // API call to SignIn failed
                 this.alertError(err)
             });
-        } else {
-            this.alertError({message: "Passwords do not match."});
-        }
+        } else this.alertError({message: "Passwords do not match."});
     };
 
     render() {

@@ -1,6 +1,6 @@
 import React from 'react';
 import {Alert, StyleSheet, Text, View} from 'react-native';
-import ForgotPasswordForm from "../components/auth/ForgotPasswordForm";
+import ForgotPasswordForm from "../../components/auth/ForgotPasswordForm";
 import {Auth} from 'aws-amplify';
 
 
@@ -29,14 +29,16 @@ export default class ForgotPasswordScreen extends React.Component {
                 )
             )
             .catch(err => {
-            console.log(err);
-                Alert.alert(
-                    'Invalid email',
-                    'There is no DDA account associated with that email address.',
-                    [{text: 'OK'}],
-                    {cancelable: false}
-                )}
-            )
+                this.alertError(err);
+            });
+    }
+
+    alertError(error) {
+        Alert.alert("Something went wrong, please try agai",
+            error.message, [{
+                title: "OK",
+                onPress: console.log(error),
+            }]);
     }
 
     render() {
@@ -47,12 +49,10 @@ export default class ForgotPasswordScreen extends React.Component {
                     onFormChange={this.handleFormChange}
                     onSubmit={() => this.handleForgotPassword()}
                 />
-                <View style={[styles.smallText, {flexDirection: 'row', textAlign: 'center'}]}>
-                    <Text>If you have been emailed a verification code, click </Text>
-                    <Text style={styles.link} onPress={() =>
-                        this.props.navigation.navigate('ForgotPassword')}>
-                        here.</Text>
-                </View>
+            <View style={styles.smallText}>
+            <Text>If you have been emailed a verification code, go </Text>
+        <Text style={styles.link} onPress={() => this.props.navigation.navigate('ForgotPassVerification')}>here.</Text>
+        </View>
             </View>
         );
     }
@@ -67,6 +67,11 @@ const styles = StyleSheet.create({
     },
     smallText: {
         fontSize: 14,
+        paddingTop: 30,
+        alignItems: 'center',
+        justifyContent: 'center',
+        flexDirection: 'row',
+        flexWrap: 'wrap'
     },
     link: {
         color: '#F98C04',

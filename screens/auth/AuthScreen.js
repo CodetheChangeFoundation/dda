@@ -1,5 +1,5 @@
 import React from 'react';
-import {StyleSheet, Text, View } from 'react-native';
+import {Alert, StyleSheet, Text, View} from 'react-native';
 import {Auth} from 'aws-amplify';
 import SignInForm from "../../components/auth/SignInForm";
 
@@ -31,16 +31,14 @@ export default class AuthScreen extends React.Component {
                         onFormChange={this.handleFormChange}
                         onSubmit={this.handleSignIn}
                     />
-                <View style={[styles.smallText, {flexDirection: 'row', paddingTop: 30}]}>
-                    <Text>If you have been emailed a temporary password, update it  </Text>
+                <View style={styles.smallText}>
+                <Text>If you have a temporary password, update it  </Text>
                     <Text style={styles.link} onPress={url => this.props.navigation.navigate('ChangePassword')}>here.</Text>
-                <View style={[styles.smallText, {flexDirection: 'row', textAlign: 'center', paddingTop: 30}]}>
-                    <Text>Forgot your password? Click </Text>
-                    <Text style={styles.link} onPress={() =>
-                        this.props.navigation.navigate('ForgotPassword')}>
-                        here.</Text>
                 </View>
-            </View>
+                    <View style={styles.smallText}>
+                    <Text>If you have forgotten your password, click </Text>
+                    <Text style={styles.link} onPress={() => this.props.navigation.navigate('ForgotPassword')}>here.</Text>
+                </View>
             </View>
         );
     }
@@ -55,6 +53,11 @@ const styles = StyleSheet.create({
     },
     smallText: {
         fontSize: 14,
+        paddingTop: 30,
+        alignItems: 'center',
+        justifyContent: 'center',
+        flexDirection: 'row',
+        flexWrap: 'wrap'
     },
     link: {
         color: '#F98C04',

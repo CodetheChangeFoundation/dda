@@ -10,6 +10,7 @@ const ForgotPasswordForm = (props) => {
                 <Text style={{paddingBottom: 5}}> Enter the email address used for the account.</Text>
                 <TextInput
                     style={styles.input}
+                    autoCapitalize="none"
                     onChangeText={(value) => props.onFormChange("email", value)}
                     placeholder="Email"
                     placeholderTextColor="black"

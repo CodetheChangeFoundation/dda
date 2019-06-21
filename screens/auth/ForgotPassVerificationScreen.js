@@ -49,18 +49,17 @@ export default class ForgotPassVerificationScreen extends React.Component {
         } else this.alertError({message: "Passwords do not match."});
     };
 
-render()
-{
-    return (
-        <View style={styles.container}>
-            <Text>(logo goes here)</Text>
-            <ForgotPassVerificationForm
-                onFormChange={this.handleFormChange}
-                onSubmit={() => this.handleForgotPasswordChange()}
-            />
-        </View>
-    );
-}
+    render() {
+        return (
+            <View style={styles.container}>
+                <Text>(logo goes here)</Text>
+                <ForgotPassVerificationForm
+                    onFormChange={this.handleFormChange}
+                    onSubmit={() => this.handleForgotPasswordChange()}
+                />
+            </View>
+        );
+    }
 }
 
 const styles = StyleSheet.create({
